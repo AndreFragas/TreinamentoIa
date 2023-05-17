@@ -1,8 +1,25 @@
 
 import tkinter as tk
 from tkinter import ttk
+from DadosFumantes import DadosFumantes
+from Utils import calculate_similarity
 
-def interface():
+def interface(lista_dados: list):
+    def submit() :
+        userValue = DadosFumantes(
+            Id=9999,
+            gender=gender_combobox.get(),
+            age=age_entry.get(),
+            marital_status=marital_status_combobox.get(),
+            highest_qualification=highest_qualification_combobox.get(),
+            nationality=nationality_combobox.get(),
+            ethnicity=ethnicity_combobox.get(),
+            gross_income=gross_income_combobox.get(),
+            smoke=smoke_combobox.get()
+        )
+        
+        #calculate_similarity(data, userValue)
+    
     window = tk.Tk()
     window.title("Entrada de Dados")
     window.geometry("1200x600")
@@ -62,13 +79,4 @@ def interface():
 
     window.mainloop()
     
-    def submit() :
-        # gender = gender_combobox.get()
-        # age = age_entry.get()
-        # marital_status = marital_status_combobox.get()
-        # highest_qualification = highest_qualification_combobox.get()
-        # nationality = nationality_combobox.get()
-        # ethnicity = ethnicity_combobox.get()
-        # gross_income = gross_income_combobox.get()
-        # smoke = smoke_combobox.get()
-        return
+

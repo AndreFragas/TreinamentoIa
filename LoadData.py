@@ -1,4 +1,4 @@
-from src.DadosFumantes import DadosFumantes
+from DadosFumantes import DadosFumantes
 import json
 
 #Carrega o DataSet em formato Json
