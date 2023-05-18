@@ -9,7 +9,7 @@ def loadData():
         dados = json.load(arquivo)
     
     for dado in dados:
-        dadoPersonalizado  = DadosFumantes(dado["Id"], dado["gender"], dado["age"], dado["marital_status"], dado["highest_qualification"], dado["nationality"], dado["ethnicity"], dado["gross_income"], dado["smoke"])
+        dadoPersonalizado  = DadosFumantes(dado["Id"], dado["gender"], dado["age"], dado["marital_status"], dado["highest_qualification"], dado["nationality"], dado["ethnicity"], dado["gross_income"], dado["smoke"], 0)
         lista.append(dadoPersonalizado)
     
     return lista

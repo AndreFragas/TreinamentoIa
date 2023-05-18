@@ -1,5 +1,6 @@
 import string
 from DadosFumantes import DadosFumantes
+from Weights import Weights
 
 def getDataExplore(lista_dados: list, propriety: string, value: any):
     quantity = 0
@@ -9,18 +10,35 @@ def getDataExplore(lista_dados: list, propriety: string, value: any):
             
     return quantity
         
-def calculate_similarity(data: DadosFumantes, userData: DadosFumantes):
-    similarity: 0.0
-    
-    
-    return similarity
-
-weights = {
-    "age": 0.2,
-    "gender": 0.1,
-    "marital_status": 0.3,
-    "highest_qualification": 0.2,
-    "nationality": 0.1,
-    "ethnicity": 0.1,
-    "gross_income": 0.1,
-}
+def calculate_similarity(listaDados, userData: DadosFumantes, weights: Weights):
+    somaPesos = weights.age + weights.gender + weights.marital_status + weights.highest_qualification + weights.nationality + weights.ethnicity + weights.gross_income
+    listaSimilarity = []
+    for dado in listaDados:
+        calcAge = 0
+        calcGender = 0
+        calcMarital = 0
+        calcQualification = 0
+        calcNationality = 0
+        calcEthnicity = 0
+        calcGrossIncome = 0
+        
+        if dado.age == int(userData.age):
+            calcAge = int(weights.age)
+        if dado.gender == userData.gender:
+            calcGender = int(weights.gender)
+        if dado.marital_status == userData.marital_status:
+            calcMarital = int(weights.marital_status)
+        if dado.highest_qualification == userData.highest_qualification:
+            calcQualification = int(weights.highest_qualification)
+        if dado.nationality == userData.nationality:
+            calcNationality = int(weights.nationality)
+        if dado.ethnicity == userData.ethnicity:
+            calcEthnicity = int(weights.ethnicity)
+        if dado.gross_income == userData.gross_income:
+            calcGrossIncome = int(weights.gross_income)
+            
+        dado.similarity = (calcAge + calcGender + calcMarital + calcQualification + calcNationality + calcEthnicity + calcGrossIncome) * 100 / somaPesos
+            
+        listaSimilarity.append(dado)
+        
+    return listaSimilarity
